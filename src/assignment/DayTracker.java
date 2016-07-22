@@ -23,9 +23,6 @@ August   31th    10th
 …
 …
 …
-Once you received this assignment you should solve it in one week. Send all your source code as a .zip file with your surname on it to our HR contact. We will evaluate your solution and contact you back as soon as possible.*/
-
-// Reference: http://tutorials.jenkov.com/java-date-time/java-util-calendar.html
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
