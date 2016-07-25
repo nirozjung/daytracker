@@ -1,4 +1,5 @@
 package assignment;
+
 /*The Task:
 A friend of yours is having some issues to pay his rent and energy on time. He always forgets which day he is 
 supposed to pay it. So he asks you to create a program that creates a sheet for him which contains the dates on 
@@ -41,20 +42,22 @@ import java.util.Locale;
  * @see reference
  *      http://tutorials.jenkov.com/java-date-time/java-util-calendar.html
  * @see reference
- *      http://stackoverflow.com/questions/3666007/how-to-serialize-object-to-csv-file
+ *      http://stackoverflow.com/questions/3666007/how-to-serialize-object-to-
+ *      csv-file
  *
  */
 public class Main {
-	private static final int totalMonths = 12; // Number of month to calculate payment dates
+	private static final int totalMonths = 12; // Total months to calculate payment dates
 
-	// Delimiter used in CSV file & CSV file header
+	// Delimiter in CSV file & file header
 	private static final String COMMA_DELIMITER = ",";
-	private static final String FILE_HEADER = "Month,  Pay rent,  Pay Energy";
+	private static final String FILE_HEADER = "Month,  Pay Rent,  Pay Energy";
 
 	private static final String currentUsersHomeDir = System.getProperty("user.home");
 	private static final String file = currentUsersHomeDir + File.separator + "Desktop/test.csv";
 
 	public static void main(String[] args) {
+
 		// Initialize Calendar with current date
 		Date startDate = new Date();
 		Calendar calendar = Calendar.getInstance();
@@ -64,7 +67,8 @@ public class Main {
 
 		ArrayList<PaymentDate> paymentDateList = new ArrayList<PaymentDate>();
 
-		// Constructing PaymentDate objects for every months up to a year and injecting into ArrayList
+		// Constructing PaymentDate objects for every months up to a year and
+		// injecting into ArrayList
 		for (int i = 0; i < totalMonths; i++) {
 
 			pdo.setMonth(calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH));
@@ -74,17 +78,18 @@ public class Main {
 
 			calendar.setTime(DayTracker.energyPaymentDate(calendar.getTime()));
 			pdo.setEnergyPaymentDay(calendar.get(Calendar.DAY_OF_MONTH));
-			System.out.println(pdo.toString());
+
+			// System.out.println(pdo.toString());
 			paymentDateList.add(new PaymentDate(pdo.getMonth(), pdo.getRentPaymentDay(), pdo.getEnergyPaymentDay()));
 			calendar.add(Calendar.MONTH, 1); // incrementing month
 		} // end loop
 
-		// write all paymentdate objects to CSV file.
+		// write all PaymentDate objects for each month to CSV file.
 		writeToCSV(file, paymentDateList);
+		printArrayList(paymentDateList);
 
 	} // end main method
-	
-	
+
 	// method to write objects from Arraylist to CSV file.
 	public static void writeToCSV(String fileName, ArrayList<PaymentDate> paymentDateList) {
 
