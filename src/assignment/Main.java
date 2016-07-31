@@ -86,7 +86,8 @@ public class Main {
 
 		// write all PaymentDate objects for each month to CSV file.
 		writeToCSV(file, paymentDateList);
-		printArrayList(paymentDateList);
+		//printArrayList(paymentDateList);
+		paymentDateList.forEach(i ->System.out.println(i.toString())); // lamda experession to print PD objects in console
 
 	} // end main method
 
@@ -129,5 +130,7 @@ public class Main {
 			System.out.println(paymentDate.toString());
 		}
 	} // end method printArrayList
+	
+	
 
 }

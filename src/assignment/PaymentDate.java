@@ -2,6 +2,7 @@ package assignment;
 
 /** A simple POJO that contains payment date like month, rentPaymentDay, energyPaymentDay 
  * @author nirozjungkarki
+ * @since 2016-07-20
  * */
 
 public class PaymentDate {
